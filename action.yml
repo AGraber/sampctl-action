@@ -1,0 +1,16 @@
+name: 'Setup sampctl'
+description: 'Setup sampctl in the environment'
+inputs:
+  version:  # id of input
+    description: 'Version of sampctl'
+    required: true
+    default: '1.9.1'
+runs:
+  using: "composite"
+  steps: 
+    - run: wget https://github.com/Southclaws/sampctl/releases/download/${{ inputs.version }}/sampctl_${{ inputs.version }}_linux_amd64.tar.gz -O sampctl.tar.gz
+      shell: bash
+    - run: sudo tar -zxf sampctl.tar.gz --directory /usr/bin sampctl
+      shell: bash
+    - run: sudo chmod +x /usr/bin/sampctl
+      shell: bash
