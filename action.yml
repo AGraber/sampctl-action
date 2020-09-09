@@ -1,7 +1,10 @@
 name: 'Setup sampctl'
 description: 'Setup sampctl in the environment'
+branding:
+  icon: truck
+  color: orange
 inputs:
-  version:  # id of input
+  version: 
     description: 'Version of sampctl'
     required: true
     default: '1.9.1'
