@@ -7,11 +7,11 @@ inputs:
   version: 
     description: 'Version of sampctl'
     required: true
-    default: '1.9.1'
+    default: '' # latest
 runs:
   using: "composite"
   steps: 
-    - run: wget https://github.com/Southclaws/sampctl/releases/download/${{ inputs.version }}/sampctl_${{ inputs.version }}_linux_amd64.tar.gz -O sampctl.tar.gz
+    - run: gh release download -R Southclaws/sampctl ${{ inputs.version }} --pattern '*linux_amd64.tar.gz' -O sampctl.tar.gz
       shell: bash
     - run: sudo tar -zxf sampctl.tar.gz --directory /usr/bin sampctl
       shell: bash
